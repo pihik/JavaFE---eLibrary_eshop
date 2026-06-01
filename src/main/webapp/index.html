@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prihlásenie / Registrácia</title>
+    <!-- Pridanie Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: black;
+		    margin: 50px;
+        }
+        .login-container {
+            width: 400px;
+            margin: auto;
+        }
+        .register-btn {
+            color: white;
+            background-color: red;
+            float: right;
+        }
+        footer{
+		    position: sticky;
+		    top: 100%;
+		}
+    </style>
+</head>
+<body>
+    <div class="login-container text-light">
+        <h2>Prihlásenie</h2>
+        <hr class="bg-light">
+        <form method="get" action="mainServlet">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="heslo">Heslo:</label>
+                <input type="password" class="form-control" id="heslo" name="heslo">
+            </div>
+            <button type="submit" class="btn btn-primary" name="action" value="login">Prihlásiť sa</button>
+            <button type="submit" class="btn register-btn" name="action" value="register_form">Registrovať sa</button>
+        </form>
+    </div>
+
+	<script>
+	    const urlParams = new URLSearchParams(window.location.search);
+	    const message = urlParams.get('message');
+	    
+	    if (message === "1") {
+			alert('Nezadal si meno a heslo');
+	    }
+		else if (message === "2") {
+	        alert('Nezadal si meno');
+		}
+	    else if (message === "3") {
+	        alert('Nezadal si heslo');
+		}
+	    else if (message === "4") {
+	        alert('Niekde nastala chyba, prihlás sa znova');
+		}
+		else if (message === "5") {
+	        alert('Si zabanovaný obráť sa na podporu');
+		}
+		if (message == "success") {
+			alert('Si úspešne odhlásený');
+		}
+		if (message == "registration_success") {
+			alert('Registrácia bola úspešná, môžeš sa prihlásiť');
+		}
+	</script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

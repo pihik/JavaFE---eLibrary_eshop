@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrácia</title>
+    <!-- Pridanie Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+			background-color: black;
+            margin: 50px;
+        }
+        .register-container {
+            width: 400px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container text-light">
+        <h2>Registrácia</h2>
+        <hr class="bg-light">
+        <form method="get" action="mainServlet">
+            <div class="form-group">
+                <label for="novyMeno">Meno:</label>
+                <input type="text" class="form-control" id="meno" name="meno" required>
+            </div>
+            <div class="form-group">
+                <label for="novyMeno">Priezvisko:</label>
+                <input type="text" class="form-control" id="priezvisko" name="priezvisko" required>
+            </div>     
+            <div class="form-group">
+                <label for="novyMeno">Adresa:</label>
+                <input type="text" class="form-control" id="adresa" name="adresa" required>
+            </div>          
+            <div class="form-group">
+                <label for="novyMeno">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="noveHeslo">Heslo:</label>
+                <input type="password" class="form-control" id="heslo" name="heslo" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="noveHeslo">Zopakuj heslo:</label>
+                <input type="password" class="form-control" id="heslo_repeat" name="heslo_repeat" required>
+            </div>
+            <button type="submit" class="btn btn-danger" name="action" value="register">Registrovať</button>
+        </form>
+    </div>
+
+	<script>
+	    const urlParams = new URLSearchParams(window.location.search);
+	    const loginError = urlParams.get('loginError');
+	    const registerMessage = urlParams.get('registerMessage');
+	    
+	    if (registerMessage === "1")
+		{
+			alert('Heslá sa nezhodujú');
+		}
+		else if (registerMessage === "2")
+		{
+			alert('Tento email je už zaregistrovaný');
+		}
+		else if (registerMessage === "3")
+		{
+			alert('Registrácia bola úspešná, môžeš sa prihlásiť');
+		}
+	</script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
